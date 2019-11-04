@@ -30,16 +30,15 @@ if(isNaN(amount)) return message.reply("غلط");
   sql.prepare(sqlstr).run()
 
   let payEmb = new Discord.RichEmbed()
-  .setAuthor(message.author.username, message.author.displayAvatarURL)
-  .setTitle(`✔[حوالة بنكية] [${args[1]} ريال]`)
-  .setColor("#C2C2C2")
-  .addField("[من المطنوخ]", `${message.author}`, true)
-  .addField("[إلى]", `${pUser}`, true)
+  .setTitle(`❯:moneybag: Has Tranfered __(${args[1]})__ Credits`)
+  .setColor("#000000")
+  .addField("**❯ __من المطنوخ__**", `${message.author}`, true)
+  .addField("**❯ __إلى__  **", `${pUser}`, true)
   message.channel.send(payEmb);
 
 
 }
 
 module.exports.help = {
-  name: "transfer"
+  name: "trans"
 }

@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args, sql) => {
 
         sqlstr = `UPDATE profile SET coins = ${uCoins += amount} WHERE UserID = '${message.author.id}'`;
         sql.prepare(sqlstr).run()
-        return message.reply("**:atm:  |  "+message.author.username+", you received your :yen: "+amount+" daily credits!**").then(msg => {msg.delete(5000)});
+        return message.reply("**:atm:  |  "+message.author.username+", you received your :yen: "+amount+" daily credits!**").then(msg => {msg.delete(50000000)});
 
 
       setTimeout(() => {

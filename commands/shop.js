@@ -17,7 +17,7 @@ let ubackg = rows.bg;
       ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
       ctx.shadowOffsetY = 2;
       ctx.shadowBlur = 2;
-fs.readFile("./img/shopping.jpg", function (err, Background) {
+fs.readFile("./img/shopping2.jpg", function (err, Background) {
   if (err) return console.log(err);
   let ground = new Image;
   ground.src = Background;
@@ -49,7 +49,7 @@ ctx = canvas.getContext('2d');
     ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
     ctx.shadowOffsetY = 2;
     ctx.shadowBlur = 2;
-fs.readFile("./img/shopping2.jpg", function (err, Background) {
+fs.readFile("./img/shopping.jpg", function (err, Background) {
 if (err) return console.log(err);
 let ground = new Image;
 ground.src = Background;

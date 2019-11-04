@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args, sql) => {
 
   let rows = sql.prepare(`SELECT * FROM profile WHERE UserID = '${target.id}'`).get()
 
-    if(!rows) return message.reply("حاول مرة أخرى").then(msg => {msg.delete(5000)});
+    if(!rows) return message.reply("** حاول مرة أخرى **").then(msg => {msg.delete(5000)});
   
 
   let curxp = rows.xp;
@@ -16,13 +16,11 @@ module.exports.run = async (bot, message, args, sql) => {
   let difference = nxtLvlXp - curxp;
 
   let lvlEmbed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setColor("RANDOM")
-  .addField("مستواك", curlvl, true)
-  .addField("خبرتك", curxp, true)
-  .setFooter(`${difference} XP til level up`, message.author.displayAvatarURL);
+  .setColor("00000")
+  .addField("  **❯ مستواك     **", curlvl, true)
+  .addField("  **❯ خبرتك  ** ", curxp, true)
 
-  message.channel.send(lvlEmbed).then(msg => {msg.delete(5000)});
+  message.channel.send(lvlEmbed).then(msg => {msg.delete(50000000)});
 
 }
 

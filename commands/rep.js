@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args, sql) => {
 let LUser;
   message.delete(5000);
   let pUser = message.mentions.users.first();
-  if(message.mentions.users.size < 1) return message.channel.send("`.rep @OrochiX`").then(msg => {msg.delete(5000)});
+  if(message.mentions.users.size < 1) return message.channel.send("`#rep @user").then(msg => {msg.delete(5000)});
   {
   let rows = sql.prepare(`SELECT * FROM profile WHERE UserID = '${pUser.id}'`).get()
   
@@ -63,7 +63,7 @@ let LUser;
             }else{
               sqlstr = `UPDATE profile SET rep = ${LUser + 1} WHERE UserID = '${pUser.id}'`;
             sql.prepare(sqlstr).run()
-               return message.reply("تم رفع السمعة").then(msg => {msg.delete(5000)});
+               return message.reply(" **تم رفع السمعة    **").then(msg => {msg.delete(5000)});
              }
           }
             

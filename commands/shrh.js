@@ -25,5 +25,5 @@ fs.readFile("./img/help.png", function (err, Background) {
 
         }
 module.exports.help = {
-  name:"shr7"
+  name:"hel"
 }
