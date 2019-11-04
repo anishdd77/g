@@ -1,3 +1,13 @@
+const http = require('http');
+const express = require('express');
+const app = express();
+app.get("/", (request, response) => {
+  response.sendStatus(200);
+});
+app.listen(process.env.PORT);
+setInterval(() => {
+  http.get(`http://profgg.glitch.me/`);
+}, 280000);
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const fs = require("fs");
@@ -8,7 +18,7 @@ const sql = new SQLite('./profile.sqlite');
 const child_process = require('child_process')
 bot.commands = new Discord.Collection();
 console.log(`logging in`)
-const config = require('../config/config.json')
+const config = require('./config.json')
 const prefix = config.prefix
 
 const devs = config.devs
@@ -16,7 +26,7 @@ const devs = config.devs
 
 
    bot.on("message", message => {
-    if (message.content === ".membercount") {
+    if (message.content === ".membercountي") {
       if(!message.channel.guild) return message.channel.send("This Command is Just For Servers!")
       const memberc = new Discord.RichEmbed()
       .addField('Members:', `${message.guild.memberCount}`)
@@ -31,7 +41,7 @@ if(!p[message.guild.id]) p[message.guild.id] = {
     prefix: "."
 }
 const prefix = p[message.guild.id].prefix
-  if (message.content.startsWith(prefix + "setprefix")) {
+  if (message.content.startsWith(prefix + "setprefixيي")) {
     if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
     let newPrefix = message.content.split(' ').slice(1).join(" ")
     if(!newPrefix) return;
@@ -41,7 +51,7 @@ const prefix = p[message.guild.id].prefix
 
 });
 bot.on('message', message => {
-    if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send The Help In DMS // Code By NotGucci
+    if (message.content.startsWith(prefix + 'helpيييل')) { /// This is The DMS Code Send The Help In DMS // Code By NotGucci
         let pages = [`
         /$$$$$$$  /$$                     /$$       /$$                   /$$    
         | $$__  $$| $$                    | $$      | $$                  | $$    
@@ -242,7 +252,7 @@ bot.on('message', message => {
     });
     
     bot.on('message', message => {
-         if (message.content === (prefix + "help")) {
+         if (message.content === (prefix + "helpيي")) {
          let embed = new Discord.RichEmbed()
       .setAuthor(message.author.username)
       .setColor("#310c52")
@@ -255,7 +265,7 @@ bot.on('message', message => {
     
 
    bot.on('message', message => {
-	   if(message.content.startsWith(`${prefix}invite`)){
+	   if(message.content.startsWith(`${prefix}inviteييتي`)){
 		   if(!message.channel.guild) return message.channel.send("This Command is Just For Servers!")
 		   var embed = new Discord.RichEmbed()
 		   .setTitle(">> ClickHere To Add" + `${bot.user.username}` + " <<")
@@ -269,48 +279,6 @@ bot.on('message', message => {
    });
 
 
-const adminprefix = config.adminsprefix
-bot.on('message', message => {
-    var argresult = message.content.split(` `).slice(1).join(' ');
-      if (!devs.includes(message.author.id)) return;
-      
-  if (message.content.startsWith(adminprefix + 'ply')) {
-    bot.user.setGame(argresult);
-      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
-  } else 
-    if (message.content === (adminprefix + "gleave")) {
-    message.guild.leave();        
-  } else  
-  if (message.content.startsWith(adminprefix + 'wt')) {
-  bot.user.setActivity(argresult, {type:'WATCHING'});
-      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'ls')) {
-  bot.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
-  } else     
-    if (message.content.startsWith(adminprefix + 'setname')) {
-  bot.user.setUsername(argresult).then
-      message.channel.sendMessage(`**${argresult}** : Done :>`)
-  return message.reply("**You Can't Change Your Name ,Only After Two Hours :>**");
-  } else
-    if (message.content.startsWith(adminprefix + 'setavatar')) {
-  bot.user.setAvatar(argresult);
-    message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
-      return message.reply("**You Can't Change Your Name ,Only After Two Hours :>**");
-        } else     
-  if (message.content.startsWith(adminprefix + 'st')) {
-    bot.user.setGame(argresult, "https://www.twitch.tv/idk");
-      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
-  }
-    if(message.content === adminprefix + "restart") {
-      if (!devs.includes(message.author.id)) return;
-        bot.destroy();
-        child_process.fork(__dirname + "/index.js");
-        console.log(`Bot Successfully Restarted`);
-    }
-  
-  });
 
 
 fs.readdir("./commands/", (err, files) => {
@@ -398,7 +366,7 @@ let baseAmt = Math.floor(Math.random() * 3) + 1;
   let sqlstr;
 
   if(!profile){
-    sqlstr = `INSERT INTO profile (UserID, GuildID, xp, lvl, coins, bg, note, likes, rep, w0, w1, w2, w3, w4, w5) VALUES ('${message.author.id}', '${message.guild.id}', ${generateXp()}, '1', '0', '1', 'لايوجد', '0', '0', '1', '0', '0', '0', '0', '0')`
+    sqlstr = `INSERT INTO profile (UserID, GuildID, xp, lvl, coins, bg, note, likes, rep, w0, w1, w2, w3, w4, w5) VALUES ('${message.author.id}', '${message.guild.id}', ${generateXp()}, '1', '0', '1', '#note اكتب الأمر للتعديل', '0', '0', '1', '0', '0', '0', '0', '0')`
   }
   else if(coinAmt === baseAmt){
     let coins = profile.coins
@@ -417,11 +385,10 @@ let baseAmt = Math.floor(Math.random() * 3) + 1;
       sql.prepare(sqlstr).run();
       let lvlico = message.author.displayAvatarURL;
     let lvlup = new Discord.RichEmbed()
-    .setAuthor(message.author.username, message.author.displayAvatarURL)
     .setThumbnail(lvlico)
-    .setTitle("إرتقاء بالمستوى!")
+    .setTitle(" **إرتقاء بالمستوى**!")
     .setColor("#6E0A51")
-    .addField("مستواك الحالي", curlvl + 1);
+    .addField("**مستواك الحالي**", curlvl + 1);
 
     message.channel.send(lvlup).then(msg => {msg.delete(5000)});
     }
