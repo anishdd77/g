@@ -41,7 +41,12 @@ let rankedtext = sql.prepare(`SELECT * FROM (SELECT a1.UserID, a1.xp , COUNT (a2
     let curlvl = rows.lvl;
     let curxp = rows.xp;
     let curbg = bg[ubackg].bg;
-    
+    let w0 = wesam[uw0].w;
+    let w1 = wesam[uw1].w;
+    let w2 = wesam[uw2].w;
+    let w3 = wesam[uw3].w;
+    let w4 = wesam[uw4].w;
+    let w5 = wesam[uw5].w;
     let nn = rows.note;
     let curlikes = rows.likes;
     let currep = rows.rep;
@@ -248,7 +253,12 @@ let rankedtext = sql.prepare(`SELECT * FROM (SELECT a1.UserID, a1.xp , COUNT (a2
     let curlvl = rows.lvl;
     let curxp = rows.xp;
     let curbg = bg[ubackg].bg;
-  
+    let w0 = wesam[uw0].w;
+    let w1 = wesam[uw1].w;
+    let w2 = wesam[uw2].w;
+    let w3 = wesam[uw3].w;
+    let w4 = wesam[uw4].w;
+    let w5 = wesam[uw5].w;
     let nn = rows.note;
     let curlikes = rows.likes;
     let currep = rows.rep;
